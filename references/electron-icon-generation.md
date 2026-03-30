@@ -354,5 +354,39 @@ If you don't have ImageMagick:
 | macOS icon pixelated | No @2x versions | Generate Retina sizes |
 | `.exe` shows Electron default icon | `signAndEditExecutable: false` | Use rcedit to inject ICO after build |
 | Icon looks correct in file but wrong in app | JPEG file with `.png` extension | Verify with `file` command, convert to real PNG |
-| Icon doesn't update after rebuild | Windows icon cache | Run `ie4uinit.exe -show` or restart `explorer.exe` |
+| Icon doesn't update after rebuild | Windows icon cache | See "Windows Icon Cache Fix" below |
 | Installer icon correct but exe icon wrong | `signAndEditExecutable` disabled | Use rcedit + `--prepackaged` rebuild flow |
+
+---
+
+## Windows Icon Cache Fix
+
+Windows caches icons aggressively. After updating the icon in your .exe, shortcuts and taskbar may still show the **old icon**. Simply deleting and recreating the shortcut is not enough — the cache must be cleared.
+
+### Quick fix
+
+```bash
+ie4uinit.exe -show
+```
+
+### Full fix (if quick fix doesn't work)
+
+```powershell
+# 1. Delete all icon cache files
+$cachePath = "$env:LOCALAPPDATA\Microsoft\Windows\Explorer"
+Get-ChildItem $cachePath -Filter 'iconcache*' | Remove-Item -Force -ErrorAction SilentlyContinue
+Get-ChildItem $cachePath -Filter 'thumbcache*' | Remove-Item -Force -ErrorAction SilentlyContinue
+
+# 2. Force icon refresh
+ie4uinit.exe -show
+
+# 3. Restart Explorer (desktop will briefly disappear)
+Stop-Process -Name explorer -Force
+Start-Sleep -Seconds 2
+Start-Process explorer.exe
+```
+
+After this:
+1. Delete the old shortcut from the desktop
+2. Create a new shortcut from the installed .exe
+3. The correct icon should now appear
