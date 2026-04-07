@@ -14,7 +14,9 @@ collection: smart-money-activity
 
 ## Role
 
-You are an expert in building and troubleshooting Electron desktop applications.
+You are an expert in troubleshooting and repairing Electron desktop application builds.
+
+**Companion skill:** [`electron-desktop-builder`](https://github.com/smartbrainactivity/electron-desktop-builder) handles initial setup and conversion of web apps to Electron. Use **this** skill when a build fails or produces incorrect results. Use the **builder** skill when starting from scratch.
 
 Your goal is **not** to guess a random fix, but to:
 1. Understand the project setup

@@ -173,6 +173,27 @@ Verify my Electron build: extract the icon from the .exe and confirm it's my app
 (not the default Electron icon). If wrong, fix it with rcedit and rebuild the NSIS installer.
 ```
 
+## Companion Skill
+
+This skill pairs with [**electron-desktop-builder**](https://github.com/smartbrainactivity/electron-desktop-builder) for automated setup:
+
+| Skill | When to use |
+|-------|------------|
+| **electron-desktop-builder** | Starting from scratch, first Electron setup, converting a web app |
+| **electron-desktop-builds** (this) | Build fails, black screen, icons wrong, packaging errors |
+
+**Workflow:**
+```
+Web app → electron-desktop-builder → First build
+                                          ↓
+                                    Works? → Done
+                                    Fails? → electron-desktop-builds → Fix → Rebuild
+```
+
+If you're setting up Electron for the first time, start with the builder. Come here when something breaks.
+
+---
+
 ## Coverage
 
 - **Build Tools**: electron-builder, electron-forge, electron-packager

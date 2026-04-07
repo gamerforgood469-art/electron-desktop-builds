@@ -177,6 +177,19 @@ Verifica mi build de Electron: extrae el icono del .exe y confirma que es mi ico
 el instalador NSIS.
 ```
 
+## Skill complementario
+
+Este skill se complementa con [**electron-desktop-builder**](https://github.com/smartbrainactivity/electron-desktop-builder) para la configuracion automatizada:
+
+| Skill | Cuando usarlo |
+|-------|--------------|
+| **electron-desktop-builder** | Empezar desde cero, primer setup Electron, convertir app web |
+| **electron-desktop-builds** (este) | Build falla, pantalla negra, iconos incorrectos, errores de empaquetado |
+
+Si estas configurando Electron por primera vez, empieza con el builder. Ven aqui cuando algo falle.
+
+---
+
 ## Cobertura
 
 - **Herramientas de Build**: electron-builder, electron-forge, electron-packager
